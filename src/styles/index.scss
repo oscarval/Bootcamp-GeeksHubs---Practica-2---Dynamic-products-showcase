@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/bootstrap";
+
+// Variables
+$color-text: black;
+
+/* Color Theme Swatches in Hex */
+$Backgrounds1: #048abf;
+$Backgrounds2: #04bfbf;
+$Backgrounds3: #04bf7b;
+$Backgrounds4: #038c5a;
+$Backgrounds5: #f2d7b6;
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background: $Backgrounds1;
+  color: $color-text;
+  font-family: "Calibri", Helvetica, sans-serif;
+  text-align: center;
+}
