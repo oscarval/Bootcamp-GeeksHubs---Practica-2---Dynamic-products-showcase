@@ -24,21 +24,27 @@
 </head>
 
 <body>
-  <header class="justify-content-center">
+  <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#"><%= htmlWebpackPlugin.options.title %></a>
     </nav>
   </header>
-  <main class="main-container">
-    <div class="container">
+  <main>
+    <div class="container main-container">
       <div class="row shopping-car justify-content-center">
         el carrito
       </div>
       <div class="row showcase justify-content-center">
-        showcases
+        <div class="col-12">
+          <div class="row showcase-items">
+            <div class="col-3 showcase-item">producto1</div>
+            <div class="col-3 showcase-item">producto2</div>
+            <div class="col-3 showcase-item">producto3</div>
+            <div class="col-3 showcase-item">producto4</div>
+          </div>
+        </div>
       </div>
     </div>
-
   </main>
 </body>
 

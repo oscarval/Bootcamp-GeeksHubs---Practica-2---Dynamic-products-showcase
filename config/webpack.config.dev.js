@@ -32,6 +32,13 @@ module.exports = {
       },
     },
   },
+  resolve: {
+    extensions: [".js"],
+    alias: {
+      styles: path.resolve(__dirname, "../src/styles"),
+    },
+  },
+  devtool: "eval-sourcemap",
   module: {
     rules: [
       {
@@ -42,11 +49,6 @@ module.exports = {
           },
           {
             loader: "css-loader",
-            options: {
-              modules: {
-                localIdentName: "[path][name]__[local]___[hash:base64:5]",
-              },
-            },
           },
           {
             loader: "resolve-url-loader",
