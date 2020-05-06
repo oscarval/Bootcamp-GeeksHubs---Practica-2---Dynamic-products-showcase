@@ -32,13 +32,6 @@ module.exports = {
       },
     },
   },
-  resolve: {
-    extensions: [".js"],
-    alias: {
-      styles: path.resolve(__dirname, "../src/styles"),
-    },
-  },
-  devtool: "eval-sourcemap",
   module: {
     rules: [
       {
@@ -67,40 +60,20 @@ module.exports = {
         test: /\.(jpg|png)$/,
         use: "file-loader",
       },
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "../node_modules/html-webpack-template/index.ejs",
+      hash: true,
       title: "Dynamic products Showcase",
-      favicon: "../src/favicon.ico",
-      meta: [
-        {
-          name: "robots",
-          content: "noindex,nofollow",
-        },
-        {
-          name: "description",
-          content: "GeeksHubs Practice 2 using ES6, SASS, Bootstrap",
-        },
-        {
-          name: "keywords",
-          content: "geekshubs, practice, es6+, sass, webpack, html5, boostrap",
-        },
-      ],
-      appMountIds: ["app"],
-      inject: false,
-      minify: {
-        collapseWhitespace: true,
-        conservativeCollapse: true,
-        preserveLineBreaks: true,
-        useShortDoctype: true,
-        html5: true,
-      },
-      mobile: true,
+      template: path.join(PATHS.src, "index.html"),
+      filename: path.join(PATHS.dist, "index.html"),
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
     new CopyWebpackPlugin([
       {
         from: path.join(PATHS.src, "favicon.ico"),
@@ -109,7 +82,7 @@ module.exports = {
     ]),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(false),
-      VERSION: JSON.stringify("1.2.0"),
+      VERSION: JSON.stringify("1.0.0"),
       DEBUG: true,
       CODE_FRAGMENT: "80 + 5",
     }),

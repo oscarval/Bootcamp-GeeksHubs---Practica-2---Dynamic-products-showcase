@@ -33,12 +33,6 @@ module.exports = {
       },
     },
   },
-  resolve: {
-    extensions: [".js"],
-    alias: {
-      styles: path.resolve(__dirname, "../src/styles"),
-    },
-  },
   module: {
     rules: [
       {
@@ -54,9 +48,6 @@ module.exports = {
             },
           },
           {
-            loader: "postcss-loader",
-          },
-          {
             loader: "resolve-url-loader",
           },
           {
@@ -68,37 +59,19 @@ module.exports = {
         test: /\.(jpg|png)$/,
         use: "file-loader",
       },
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "../node_modules/html-webpack-template/index.ejs",
+      hash: true,
       title: "Dynamic products Showcase",
-      favicon: "../src/favicon.ico",
-      meta: [
-        {
-          name: "robots",
-          content: "index,follow",
-        },
-        {
-          name: "description",
-          content: "GeeksHubs Practice 2 using ES6, SASS, Bootstrap",
-        },
-        {
-          name: "keywords",
-          content: "geekshubs, practice, es6+, sass, webpack, html5, boostrap",
-        },
-      ],
-      appMountIds: ["app"],
-      inject: false,
-      minify: {
-        collapseWhitespace: true,
-        conservativeCollapse: true,
-        preserveLineBreaks: true,
-        useShortDoctype: true,
-        html5: true,
-      },
-      mobile: true,
+      template: path.join(PATHS.src, "index.html"),
+      filename: path.join(PATHS.dist, "index.html"),
     }),
     new CopyWebpackPlugin([
       {
