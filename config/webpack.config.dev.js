@@ -5,6 +5,7 @@ const path = require("path");
 
 const PATHS = {
   src: path.join(__dirname, "../src"),
+  assets: path.join(__dirname, "../src/assets"),
   dist: path.join(__dirname, "../dist"),
 };
 
@@ -32,6 +33,13 @@ module.exports = {
       },
     },
   },
+  resolve: {
+    extensions: [".js"],
+    alias: {
+      styles: path.resolve(__dirname, "../src/styles"),
+    },
+  },
+  devtool: "eval-sourcemap",
   module: {
     rules: [
       {
@@ -42,11 +50,6 @@ module.exports = {
           },
           {
             loader: "css-loader",
-            options: {
-              modules: {
-                localIdentName: "[path][name]__[local]___[hash:base64:5]",
-              },
-            },
           },
           {
             loader: "resolve-url-loader",
@@ -78,6 +81,10 @@ module.exports = {
       {
         from: path.join(PATHS.src, "favicon.ico"),
         to: path.join(PATHS.dist, "favicon.ico"),
+      },
+      {
+        from: path.join(PATHS.src, "assets"),
+        to: path.join(PATHS.dist, "assets"),
       },
     ]),
     new webpack.DefinePlugin({

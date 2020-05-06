@@ -9,14 +9,34 @@ $Backgrounds4: #038c5a;
 $Backgrounds5: #f2d7b6;
 
 html {
-  box-sizing: border-box;
-  body {
-    background: $Backgrounds1;
-    color: $color-text;
-    font-family: "Calibri", Helvetica, sans-serif;
-    text-align: center;
+  //box-sizing: border-box;
+}
 
-    .main-container {
+body {
+  background: $Backgrounds1;
+  color: $color-text;
+  font-family: "Calibri", Helvetica, sans-serif;
+}
+
+.main-container {
+  .shopping-car-container {
+    .shopping-car {
+      max-width: 30vh;
+    }
+  }
+
+  padding: 10px 10px;
+  .showcase {
+    .showcase-items {
+      border: 2px solid black;
+      .row:not(:last-child) {
+        border-bottom: 2px solid black;
+      }
+      .showcase-item {
+        &:not(:last-child) {
+          border-right: 2px solid black;
+        }
+      }
     }
   }
 }
