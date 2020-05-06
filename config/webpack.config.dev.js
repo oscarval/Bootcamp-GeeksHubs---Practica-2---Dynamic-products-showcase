@@ -5,6 +5,7 @@ const path = require("path");
 
 const PATHS = {
   src: path.join(__dirname, "../src"),
+  assets: path.join(__dirname, "../src/assets"),
   dist: path.join(__dirname, "../dist"),
 };
 
@@ -80,6 +81,10 @@ module.exports = {
       {
         from: path.join(PATHS.src, "favicon.ico"),
         to: path.join(PATHS.dist, "favicon.ico"),
+      },
+      {
+        from: path.join(PATHS.src, "assets"),
+        to: path.join(PATHS.dist, "assets"),
       },
     ]),
     new webpack.DefinePlugin({
