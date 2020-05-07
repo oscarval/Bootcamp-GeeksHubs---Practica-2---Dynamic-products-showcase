@@ -73,6 +73,10 @@ module.exports = {
         from: path.join(PATHS.src, "favicon.ico"),
         to: path.join(PATHS.dist, "favicon.ico"),
       },
+      {
+        from: path.join(PATHS.src, "assets"),
+        to: path.join(PATHS.dist, "assets"),
+      },
     ]),
     new MiniCssExtractPlugin({
       filename: "[name].[chunkhash].css",

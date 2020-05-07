@@ -5,7 +5,6 @@ const path = require("path");
 
 const PATHS = {
   src: path.join(__dirname, "../src"),
-  assets: path.join(__dirname, "../src/assets"),
   dist: path.join(__dirname, "../dist"),
 };
 
