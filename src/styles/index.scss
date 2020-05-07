@@ -1,47 +1,51 @@
-// Variables
-$color-text: black;
+/* Colors background*/
+$colorB1: #055902;
+$colorB2: #88bf11;
+$colorB3: #f2ae2e;
+$colorB4: #a67a6a;
+$colorB5: #f23e16;
 
-/* Color Theme Swatches in Hex */
-$Backgrounds1: #048abf;
-$Backgrounds2: #04bfbf;
-$Backgrounds3: #04bf7b;
-$Backgrounds4: #038c5a;
-$Backgrounds5: #f2d7b6;
+/* Colors texts*/
+$colorT1: #f2f2f2;
+$colorT2: #d9d9d9;
+$colorT3: #a6a6a6;
+$colorT4: #737373;
+$colorT5: #595959;
 
-html {
-  //box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: $Backgrounds1;
-  color: $color-text;
+  background: $colorB2;
+  color: $colorT1;
   font-family: "Calibri", Helvetica, sans-serif;
 }
 
-.main-container {
-  .shopping-car-container {
-    .shopping-car {
-      max-width: 30vh;
-    }
-  }
+.navbar {
+  text-align: center;
+  background: $colorB1;
+  padding: 1vh 0;
+}
 
-  padding: 10px 10px;
-  .showcase {
-    .showcase-items {
-      border: 2px solid black;
-      .row:not(:last-child) {
-        border-bottom: 2px solid black;
-      }
-      .showcase-item {
-        img {
-          cursor: move;
-        }
-        &:not(:last-child) {
-          border-right: 2px solid black;
-        }
-      }
-    }
+.main-container {
+  background: $colorB3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  .container {
+   
   }
+}
+.showcase-container {
+  flex-grow : 2;
+  background: $colorB4;
+}
+
+.carlist-container {
+  flex-grow : 1;
+  background: $colorB5;
 }
 
 /* Draggable styles*/
