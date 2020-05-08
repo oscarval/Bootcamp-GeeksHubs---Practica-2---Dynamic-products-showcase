@@ -1,47 +1,107 @@
-// Variables
-$color-text: black;
+/* Colors background*/
+$colorB1: #055902;
+$colorB2: #88bf11;
+$colorB3: #f2ae2e;
+$colorB4: #a67a6a;
+$colorB5: #f23e16;
 
-/* Color Theme Swatches in Hex */
-$Backgrounds1: #048abf;
-$Backgrounds2: #04bfbf;
-$Backgrounds3: #04bf7b;
-$Backgrounds4: #038c5a;
-$Backgrounds5: #f2d7b6;
+/* Colors texts*/
+$colorT1: #f2f2f2;
+$colorT2: #d9d9d9;
+$colorT3: #a6a6a6;
+$colorT4: #737373;
+$colorT5: #595959;
 
-html {
-  //box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: $Backgrounds1;
-  color: $color-text;
+  background: $colorB2;
+  color: $colorT1;
   font-family: "Calibri", Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+header {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.navbar {
+  text-align: center;
+  background: $colorB1;
+  padding: 1vh 0;
 }
 
 .main-container {
-  .shopping-car-container {
-    .shopping-car {
-      max-width: 30vh;
+  max-width: 80vw;
+  margin: 0 auto;
+  background: $colorB3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  .container {
+    display: flex;
+  }
+}
+.showcase-container {
+  flex: 1 0 0;
+  .showcase-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .showcase-grid {
+      display: flex;
+      flex-wrap: wrap;
+      .showcase-grid-content {
+        flex-basis: 100vw;
+        .showcase-row {
+          display: flex;
+          flex-direction: row;
+          .showcase-col {
+            padding: 0.5em;
+            //       text-align: center;
+            //       flex: 1 0 3vw;
+            border: 2px solid black;
+            img {
+              cursor: move;
+            }
+          }
+        }
+      }
     }
   }
+}
 
-  padding: 10px 10px;
-  .showcase {
-    .showcase-items {
-      border: 2px solid black;
-      .row:not(:last-child) {
-        border-bottom: 2px solid black;
-      }
-      .showcase-item {
-        img {
-          cursor: move;
-        }
-        &:not(:last-child) {
-          border-right: 2px solid black;
+.carlist-container {
+  flex: 1 0 0;
+  background: $colorB5;
+  .carlist-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    .carlist-car {
+      text-align: center;
+      background: white;
+    }
+    .carlist-products {
+      font-size: 2.5vw;
+      .carlist-product-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        div {
+          flex: 1 0 3vw;
         }
       }
     }
   }
+}
+
+.img-fluid {
+  max-width: 8vw;
 }
 
 /* Draggable styles*/
