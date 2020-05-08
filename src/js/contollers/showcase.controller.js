@@ -1,9 +1,11 @@
 import Product from "../entities/product/product";
 import DragDropController from "./dragdrop.controller";
+import ShoppingcarController from "./shoppingcar.controller";
 
 export default class ShowcaseController {
   productList = [];
   dragDropController = new DragDropController();
+  shoppingcarController = new ShoppingcarController();
   objectDomDropTarget;
   constructor(productsData) {
     this.productList = productsData.map((product) => {
@@ -13,13 +15,9 @@ export default class ShowcaseController {
 
   initialDragDrop = (idDropTarget) => {
     // init drag targets and listeners
-    this.productList.forEach((product) => {
-      let objectDom = document.querySelector(`#${product.id}`);
-      objectDom.addEventListener("dragstart", this.onDragStart, false);
-      objectDom.addEventListener("dragover", this.onDragOver, false);
-      // objectDom.addEventListener("dragleave", this.onDragleave, false);
-      objectDom.addEventListener("dragend", this.onDragEnd, false);
-    });
+    document.addEventListener("dragstart", this.onDragStart);
+    document.addEventListener("dragover", this.onDragOver);
+    document.addEventListener("dragend", this.onDragEnd, false);
 
     // init drop target
     this.objectDomDropTarget = document.querySelector(`#${idDropTarget}`);
@@ -29,20 +27,11 @@ export default class ShowcaseController {
       this.onDropOver,
       false
     );
-    this.objectDomDropTarget.addEventListener(
-      "dragleave",
-      this.onDragleave,
-      false
-    );
-    this.objectDomDropTarget.addEventListener("drop", this.onDrop, false);
+    document.addEventListener("drop", this.onDrop, false);
   };
 
   onDragStart = (e) => {
     this.dragDropController.onDragStart(e, e.target);
-  };
-
-  onDragleave = (e) => {
-    this.dragDropController.removeClass(this.objectDomDropTarget);
   };
 
   onDragOver = (e) => {
@@ -50,6 +39,7 @@ export default class ShowcaseController {
   };
 
   onDropOver = (e) => {
+    e.preventDefault();
     this.dragDropController.addClass(this.objectDomDropTarget);
   };
 
@@ -59,5 +49,9 @@ export default class ShowcaseController {
 
   onDrop = (e) => {
     this.dragDropController.onDrop(e, this.objectDomDropTarget);
+    const productId = event.dataTransfer.getData("Text");
+    if(productId){
+      this.shoppingcarController.addProduct(productId);
+    }
   };
 }

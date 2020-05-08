@@ -21,6 +21,12 @@ body {
   background: $colorB2;
   color: $colorT1;
   font-family: "Calibri", Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+header {
+  max-width: 80vw;
+  margin: 0 auto;
 }
 
 .navbar {
@@ -30,22 +36,72 @@ body {
 }
 
 .main-container {
+  max-width: 80vw;
+  margin: 0 auto;
   background: $colorB3;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   .container {
-   
+    display: flex;
   }
 }
 .showcase-container {
-  flex-grow : 2;
-  background: $colorB4;
+  flex: 1 0 0;
+  .showcase-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .showcase-grid {
+      display: flex;
+      flex-wrap: wrap;
+      .showcase-grid-content {
+        flex-basis: 100vw;
+        .showcase-row {
+          display: flex;
+          flex-direction: row;
+          .showcase-col {
+            padding: 0.5em;
+            //       text-align: center;
+            //       flex: 1 0 3vw;
+            border: 2px solid black;
+            img {
+              cursor: move;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .carlist-container {
-  flex-grow : 1;
+  flex: 1 0 0;
   background: $colorB5;
+  .carlist-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    .carlist-car {
+      text-align: center;
+      background: white;
+    }
+    .carlist-products {
+      font-size: 2.5vw;
+      .carlist-product-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        div {
+          flex: 1 0 3vw;
+        }
+      }
+    }
+  }
+}
+
+.img-fluid {
+  max-width: 8vw;
 }
 
 /* Draggable styles*/

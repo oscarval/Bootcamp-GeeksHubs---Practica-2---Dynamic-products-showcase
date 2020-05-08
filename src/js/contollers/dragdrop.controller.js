@@ -2,22 +2,21 @@ export default class DragDropController {
   constructor() {}
 
   onDragStart = (e, objectDom) => {
+    e.dataTransfer.setData("Text", e.target.id);
     this.addClass(objectDom);
   };
 
   onDragOver = (e) => {
-    if (e.preventDefault) {
-      e.preventDefault(); // Necessary. Allows us to drop.
-    }
-    e.dataTransfer.dropEffect = "move"; // See the section on the DataTransfer object.
-    return false;
+    e.preventDefault(); // Necessary. Allows us to drop.
   };
 
   onDragEnd = (e, objectDom) => {
+    e.preventDefault();
     this.removeClass(objectDom);
   };
 
   onDrop = (e, objectDomDropTarget) => {
+    e.preventDefault();
     this.removeClass(objectDomDropTarget);
   };
 
