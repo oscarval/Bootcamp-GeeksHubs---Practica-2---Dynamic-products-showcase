@@ -11,59 +11,87 @@ $colorT2: #d9d9d9;
 $colorT3: #a6a6a6;
 $colorT4: #737373;
 $colorT5: #595959;
-
-* {
-  margin: 0;
-  padding: 0;
-}
+$colorT6: #000;
 
 body {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   background: $colorB2;
   color: $colorT1;
   font-family: "Calibri", Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
+  min-height: 100vh;
+  max-width: 800px;
+}
+a {
+  all: unset;
+  cursor: pointer;
+  color: $colorB1;
+  font-weight: bold;
 }
 
 header {
-  max-width: 80vw;
-  margin: 0 auto;
-}
-
-.navbar {
   text-align: center;
   background: $colorB1;
-  padding: 1vh 0;
+}
+
+main {
+  // background: $colorB5;
+  flex: 1;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  background: $colorB3;
+  padding: 2em 0;
+  font-size: 0.7rem;
+  .column {
+    padding: 0 2em;
+  }
 }
 
 .main-container {
-  max-width: 80vw;
-  margin: 0 auto;
-  background: $colorB3;
+  // max-width: 80vw;
+  // margin: 0 auto;
+  // background: $colorB3;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  .container {
-    display: flex;
-  }
 }
 .showcase-container {
-  flex: 1 0 0;
+  flex: 1.3 0 0;
   .showcase-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     .showcase-grid {
+      padding: 5px 3em;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      .showcase-grid-header {
+        text-align: center;
+        background-color: $colorB4;
+        border: 2px solid $colorT5;
+        border-radius: 5px 5px 0 0;
+        padding: 1em;
+      }
       .showcase-grid-content {
-        flex-basis: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         .showcase-row {
           display: flex;
           flex-direction: row;
           .showcase-col {
-            padding: 0.5em;
-            //       text-align: center;
-            //       flex: 1 0 3vw;
+            background: url("../assets/img/back.jpg") no-repeat center center;
+            background-size: cover;
+            flex: 1 0 0%;
+            padding: 1.5em;
+            text-align: center;
             border: 2px solid black;
             img {
               cursor: move;
@@ -71,13 +99,20 @@ header {
           }
         }
       }
+      .showcase-grid-footer {
+        text-align: center;
+        background-color: $colorB4;
+        border: 2px solid $colorT5;
+        border-radius: 0 0 5px 5px;
+        padding: 1em;
+      }
     }
   }
 }
 
 .carlist-container {
-  flex: 1 0 0;
-  background: $colorB5;
+  flex: 1.7 0 0;
+  // background: $colorB5;
   .carlist-content {
     display: flex;
     flex-direction: column;
@@ -87,13 +122,24 @@ header {
       background: white;
     }
     .carlist-products {
-      font-size: 2.5vw;
+      border: 2px solid white;
+      min-height: 20vh;
+      font-size: 1rem;
       .carlist-product-item {
+        color: $colorT6;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
+        &:first-child{
+            border-bottom: 1px solid $colorT5;
+        }
         div {
-          flex: 1 0 3vw;
+          
+          flex: 1;
+        }
+        .product-quantity,
+        .product-price {
+          text-align: center;
         }
       }
     }
@@ -101,7 +147,7 @@ header {
 }
 
 .img-fluid {
-  max-width: 8vw;
+  max-width: 6vw;
 }
 
 /* Draggable styles*/

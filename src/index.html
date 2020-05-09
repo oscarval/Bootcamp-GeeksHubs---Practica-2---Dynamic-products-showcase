@@ -14,14 +14,12 @@
 
 <body>
   <header>
-    <nav class="navbar">
-      <h1><%= htmlWebpackPlugin.options.title %></h1>
-    </nav>
+    <h3><%= htmlWebpackPlugin.options.title %></h3>
   </header>
   <!-- main container -->
   <main class="main-container">
     <!-- section showcase -->
-    <div class="showcase-container">
+    <section class="showcase-container">
       <div class="showcase-content">
         <div class="showcase-header">
           <h4>
@@ -29,57 +27,64 @@
           </h4>
         </div>
         <div class="showcase-grid">
+          <div class="showcase-grid-header">Showcase - Nuestra frutas</div>
           <div class="showcase-grid-content">
             <div class="showcase-row">
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="papaya" src="./assets/img/papaya.png" class="img-fluid" alt="">
               </div>
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="naranja" src="./assets/img/naranja.png" class="img-fluid" alt="">
               </div>
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="fresa" src="./assets/img/fresa.png" class="img-fluid" alt="">
               </div>
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="pomelo" src="./assets/img/pomelo.png" class="img-fluid" alt="">
               </div>
             </div>
             <div class="showcase-row">
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="sandia" src="./assets/img/sandia.png" class="img-fluid" alt="">
               </div>
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="limon" src="./assets/img/limon.png" class="img-fluid" alt="">
               </div>
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="melocoton" src="./assets/img/melocoton.png" class="img-fluid" alt="">
               </div>
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="pina" src="./assets/img/pina.png" class="img-fluid" alt="">
               </div>
             </div>
             <div class="showcase-row">
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="manazana-verde" src="./assets/img/manza-verde.png" class="img-fluid" alt="">
               </div>
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="manzana-roja" src="./assets/img/manzana-roja.png" class="img-fluid" alt="">
               </div>
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="cereza" src="./assets/img/cereza.png" class="img-fluid" alt="">
               </div>
-              <div class="showcase-col dragabble">
+              <div class="showcase-col draggable">
                 <img draggable="true" id="kiwi" src="./assets/img/kiwi.png" class="img-fluid" alt="">
               </div>
             </div>
           </div>
+          <div class="showcase-grid-footer">Gracias por su compra</div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- section car list -->
-    <div class="carlist-container">
+    <aside class="carlist-container">
       <div class="carlist-content">
+        <div class="carlist-header">
+          <h4>
+            Lista de la compra
+          </h4>
+        </div>
         <div class="carlist-car">
           <div id="dropShoppingCar">
             <img src="./assets/img/shopping-car.png" class="img-fluid" alt="Car">
@@ -87,13 +92,22 @@
         </div>
         <div class="carlist-products">
           <div class="carlist-product-item">
-            <div class="product-name">Product</div>
-            <div class="product-quantity">Quatity</div>
-            <div class="product-price">Price €</div>
+            <div class="product-name">Fruta</div>
+            <div class="product-quantity">Cantidad</div>
+            <div class="product-price">Precio €</div>
           </div>
         </div>
       </div>
+    </aside>
+  </main>
+  <footer>
+    <div class="column">Author: Alexis Valdez</div>
+    <div class="column">GeeksHubs Practice</div>
+    <div class="column">
+      <a href="https://github.com/oscarval/Bootcamp-GeeksHubs-Practica-2-Dynamic-products-showcase"
+        target="_blank">Github</a>
     </div>
+  </footer>
 </body>
 
 </html>

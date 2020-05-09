@@ -48,10 +48,15 @@ export default class ShowcaseController {
   };
 
   onDrop = (e) => {
-    this.dragDropController.onDrop(e, this.objectDomDropTarget);
-    const productId = event.dataTransfer.getData("Text");
-    if(productId){
-      this.shoppingcarController.addProduct(productId);
+    if (
+      e.target.id === this.objectDomDropTarget.id ||
+      e.path[1].id === this.objectDomDropTarget.id
+    ) {
+      this.dragDropController.onDrop(e, this.objectDomDropTarget);
+      const productId = e.dataTransfer.getData("Text");
+      if (productId) {
+        this.shoppingcarController.addProduct(productId);
+      }
     }
   };
 }
