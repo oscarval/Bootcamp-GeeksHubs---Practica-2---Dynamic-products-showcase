@@ -1,0 +1,10 @@
+/* mixin */
+@mixin showcase-grid-content-margin {
+    @media (max-device-height: 700px) {
+      margin-left: 8px;
+    }
+    @media (min-device-height: 701px) {
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+  }

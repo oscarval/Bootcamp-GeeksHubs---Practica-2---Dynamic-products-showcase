@@ -2,20 +2,43 @@
   "name": "GH_Practice_2",
   "version": "1.0.0",
   "description": "GeeksHubs Practice 2 - Dynamic product showcase",
-  "private": true,
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --mode=development && webpack-dev-server",
-    "build": "webpack --mode=development",
-    "build-prod": "webpack --mode=production"
+    "dev": "webpack-dev-server",
+    "build:dev": "npm run clean && webpack --mode development",
+    "build": "npm run clean && BABEL_ENV=production webpack --mode production",
+    "clean": "rm -R -f dist"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscarval/Bootcamp-GeeksHubs-Practica-2-Dynamic-products-showcase.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oscarval/Bootcamp-GeeksHubs-Practica-2-Dynamic-products-showcase/issues"
+  },
+  "homepage": "https://github.com/oscarval/Bootcamp-GeeksHubs-Practica-2-Dynamic-products-showcase#readme",
   "keywords": [],
-  "author": "Alexis Vladez",
+  "author": "Alexis Valdez",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "6.26.0",
-    "babel-loader": "7.1.2",
-    "babel-preset-es2017": "6.24.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-arrow-functions": "^7.8.3",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "html-webpack-template": "^6.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "resolve-url-loader": "^3.1.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"

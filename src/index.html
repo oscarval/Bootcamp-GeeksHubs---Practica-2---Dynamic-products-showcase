@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="ie=edge" http-equiv="x-ua-compatible">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="GeeksHubs Practice 2 using ES6, SASS, Bootstrap">
+  <meta name="keywords" content="geekshubs, practice, es6+, sass, webpack, html5, boostrap">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link href="./favicon.ico" rel="shortcut icon">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+</head>
+
+<body>
+  <header>
+    <h3><%= htmlWebpackPlugin.options.title %></h3>
+  </header>
+  <!-- main container -->
+  <main class="main-container">
+    <!-- section showcase -->
+    <section class="showcase-container">
+      <div class="showcase-content">
+        <!-- header showcase -->
+        <div class="showcase-header">
+          <h2>
+            Arrastre los productos al carrito
+          </h2>
+        </div>
+        <!-- shoace grid of product -->
+        <div class="showcase-grid">
+          <div class="showcase-grid-header">Nuestra frutas y verduras</div>
+          <div class="showcase-grid-content">
+            <div class="showcase-grid-content-wrapper">
+              <div class="showcase-row">
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="mango" src="" class="img-fluid" alt="">
+                  <span class="mango-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="naranja" src="" class="img-fluid" alt="">
+                  <span class="naranja-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="fresa" src="" class="img-fluid" alt="">
+                  <span class="fresa-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="uva" src="" class="img-fluid" alt="">
+                  <span class="uva-price">--</span>
+                </div>
+              </div>
+              <div class="showcase-row">
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="sandia" src="" class="img-fluid" alt="">
+                  <span class="sandia-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="limon" src="" class="img-fluid" alt="">
+                  <span class="limon-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="melocoton" src="" class="img-fluid" alt="">
+                  <span class="melocoton-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="pina" src="" class="img-fluid" alt="">
+                  <span class="pina-price">--</span>
+                </div>
+              </div>
+              <div class="showcase-row">
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="manzana" src="" class="img-fluid" alt="">
+                  <span class="manzana-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="aguacate" src="" class="img-fluid" alt="">
+                  <span class="aguacate-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="cereza" src="" class="img-fluid" alt="">
+                  <span class="cereza-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="kiwi" src="" class="img-fluid" alt="">
+                  <span class="kiwi-price">--</span>
+                </div>
+              </div>
+              <div class="showcase-row">
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="platano" src="" class="img-fluid" alt="">
+                  <span class="platano-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="brocoli" src="" class="img-fluid" alt="">
+                  <span class="brocoli-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="berenjena" src="" class="img-fluid" alt="">
+                  <span class="berenjena-price">--</span>
+                </div>
+                <div class="showcase-col draggable">
+                  <img draggable="true" id="tomate" src="" class="img-fluid" alt="">
+                  <span class="tomate-price">--</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-grid-footer">Gracias por su compra</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- section car list -->
+    <aside class="carlist-container">
+      <div class="carlist-content">
+        <div class="carlist-header">
+          <h2>
+            Lista de la compra
+          </h2>
+        </div>
+        <div class="carlist-car">
+          <div class="shopping-car-drop" id="dropShoppingCar">
+            <img src="./assets/img/shopping-car.png" class="img-fluid" alt="Car">
+          </div>
+          <div class="shopping-car-total">
+            <p>Total</p>
+            <p class="total">0 €</p>
+          </div>
+        </div>
+        <div class="carlist-products">
+          <div class="carlist-product-item">
+            <div class="product-name">Fruta</div>
+            <div class="product-quantity">Cantidad</div>
+            <div class="product-price">Precio</div>
+            <div class="product-delete">Borrar</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container-1">
+      <div class="column">
+        Author: Alexis Valdez
+      </div>
+      <div class="column">GeeksHubs Practice</div>
+      <div class="column">
+        <a href="https://github.com/oscarval/Bootcamp-GeeksHubs-Practica-2-Dynamic-products-showcase"
+          target="_blank">Github</a>
+      </div>
+    </div>
+    <div class="footer-container-2">
+      Iconos diseñados por <a href="https://www.flaticon.es/autores/turkkub" title="turkkub">turkkub</a> from
+      <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a>
+    </div>
+  </footer>
+</body>
+
+</html>
