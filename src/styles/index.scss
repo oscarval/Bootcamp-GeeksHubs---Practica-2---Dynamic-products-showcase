@@ -17,7 +17,9 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background: $colorB2;
+  // background: $colorB2;
+  background: url("../assets/img/back_body.jpg") no-repeat center center;
+  background-size: cover;
   color: $colorT1;
   font-family: "Calibri", Helvetica, sans-serif;
   font-size: 14px;
@@ -43,32 +45,41 @@ main {
 
 footer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: center;
+  flex-direction: column;
   background: $colorB3;
   padding: 2em 0;
   font-size: 0.7rem;
-  .column {
-    padding: 0 2em;
+  text-align: center;
+  .footer-container-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    .column {
+      padding: 0 2em;
+    }
+  }
+  .footer-container-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
 .main-container {
-  // max-width: 80vw;
-  // margin: 0 auto;
-  // background: $colorB3;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 .showcase-container {
+  color: $colorT6;
   flex: 1.3 0 0;
   .showcase-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     .showcase-grid {
+      color: white;
       padding: 5px 3em;
       display: flex;
       flex-direction: column;
@@ -80,21 +91,23 @@ footer {
         padding: 1em;
       }
       .showcase-grid-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        .showcase-row {
+        .showcase-grid-content-wrapper {
           display: flex;
-          flex-direction: row;
-          .showcase-col {
-            background: url("../assets/img/back.jpg") no-repeat center center;
-            background-size: cover;
-            flex: 1 0 0%;
-            padding: 1.5em;
-            text-align: center;
-            border: 2px solid black;
-            img {
-              cursor: move;
+          flex-direction: column;
+          justify-content: space-around;
+          .showcase-row {
+            display: flex;
+            flex-direction: row;
+            .showcase-col {
+              background: url("../assets/img/back.jpg") no-repeat center center;
+              background-size: cover;
+              flex: 1 0 0%;
+              padding: 1.5em;
+              text-align: center;
+              border: 2px solid black;
+              img {
+                cursor: move;
+              }
             }
           }
         }
@@ -111,6 +124,7 @@ footer {
 }
 
 .carlist-container {
+  color: $colorT6;
   flex: 1.7 0 0;
   // background: $colorB5;
   .carlist-content {
@@ -122,6 +136,7 @@ footer {
       background: white;
     }
     .carlist-products {
+      background-color: $colorT2;
       border: 2px solid white;
       min-height: 20vh;
       font-size: 1rem;
@@ -130,11 +145,10 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        &:first-child{
-            border-bottom: 1px solid $colorT5;
+        &:first-child {
+          border-bottom: 1px solid $colorT5;
         }
         div {
-          
           flex: 1;
         }
         .product-quantity,
@@ -147,7 +161,7 @@ footer {
 }
 
 .img-fluid {
-  max-width: 6vw;
+  max-width: 5vw;
 }
 
 /* Draggable styles*/
