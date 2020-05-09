@@ -1,3 +1,7 @@
+/*
+* Product class
+* Model of products
+*/
 export default class Product {
   id;
   name;

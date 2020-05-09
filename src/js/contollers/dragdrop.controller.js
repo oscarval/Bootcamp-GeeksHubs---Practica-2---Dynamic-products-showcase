@@ -1,3 +1,7 @@
+/**
+ * DragDropController class
+ * Basic use of drag and drop events
+ */
 export default class DragDropController {
   constructor() {}
 

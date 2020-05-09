@@ -1,7 +1,11 @@
-import Product from "../entities/product/product";
+import Product from "../models/product/product";
 import ProductsData from "../data/products.data";
 import Utils from "../utils/utils";
 
+/**
+ * ShoppingcarController
+ * Features of Car list products selected
+ */
 export default class ShoppingcarController {
   objectDomCarList = null;
   prodAdded = {};
@@ -9,6 +13,12 @@ export default class ShoppingcarController {
     this.objectDomCarList = document.querySelector(".carlist-products");
   }
 
+  /**
+   * AddProduct
+   * Create dom and insert or update dynamic on html
+   * Update total
+   * idProduct:string
+   */
   addProduct = (idProduct) => {
     const product = this.setProduct(idProduct);
 
@@ -46,15 +56,27 @@ export default class ShoppingcarController {
         `#product-price-${product.id}`
       ).innerHTML = Utils.formatCurrency(product.price);
     }
+    // update the total
     this.setTotal();
   };
 
+  /**
+   * deleteProduct
+   * Remove item of array and html
+   * Update total
+   */
   deleteProduct = (event) => {
     delete this.prodAdded[event.target.id];
     document.querySelector(`#product-item-${event.target.id}`).remove();
     this.setTotal();
   };
 
+  /**
+   * setProduct
+   * with idproduct prameter where data of ProductData array
+   * add product
+   * return new Product;
+   */
   setProduct = (idProduct) => {
     const product = ProductsData.find((prod) => prod.id === idProduct);
     if (this.prodAdded[product.id]) {
@@ -71,6 +93,11 @@ export default class ShoppingcarController {
     return this.prodAdded[product.id];
   };
 
+  /**
+   * setTotal
+   * Iterate product added and get the total
+   * Set the total in html
+   */
   setTotal = (idProduct) => {
     let total = 0;
     for (let product in this.prodAdded) {

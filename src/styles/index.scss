@@ -1,3 +1,4 @@
+/* mixins and media queries */
 @import "./media.scss";
 @import "./mixin.scss";
 
@@ -16,10 +17,12 @@ $colorT4: #737373;
 $colorT5: #595959;
 $colorT6: #000;
 
+/* General styles nad layout */
 html {
   background: url("../assets/img/back_body.jpg") no-repeat center center fixed;
   background-size: cover;
 }
+
 body {
   margin: 0 auto;
   display: flex;
@@ -31,6 +34,7 @@ body {
   max-width: 900px;
   flex-wrap: wrap;
 }
+
 a {
   all: unset;
   cursor: pointer;
@@ -70,6 +74,7 @@ footer {
   }
 }
 
+/* Secciton main */
 .main-container {
   display: flex;
 }
@@ -132,6 +137,7 @@ footer {
   }
 }
 
+/* Aside car list */
 .carlist-container {
   color: $colorT6;
   flex: 1.7 1.7 0;
@@ -184,7 +190,7 @@ footer {
         .product-delete {
           text-align: center;
         }
-        .product-delete button{
+        .product-delete button {
           background-color: $colorB3;
           border-radius: 5px;
         }
@@ -193,6 +199,7 @@ footer {
   }
 }
 
+/* Images styles*/
 .img-fluid {
   max-width: 5vw;
 }

@@ -1,8 +1,14 @@
-import Product from "../entities/product/product";
+import Product from "../models/product/product";
 import DragDropController from "./dragdrop.controller";
 import ShoppingcarController from "./shoppingcar.controller";
 
+// Utils
 import Utils from "../utils/utils";
+
+/*
+ * ShowcaseController class
+ * Principal controller of app
+ */
 export default class ShowcaseController {
   pathImg = "./assets/img";
   productList = [];
@@ -10,6 +16,7 @@ export default class ShowcaseController {
   shoppingcarController = new ShoppingcarController();
   objectDomDropTarget;
   constructor(productsData) {
+    // set the html of products with data of ProductData
     this.productList = productsData.map((product) => {
       const productPriceDom = document.querySelector(`.${product.id}-price`);
       const productImgDom = document.querySelector(`#${product.id}`);
@@ -19,6 +26,7 @@ export default class ShowcaseController {
     });
   }
 
+  // init drag and grop
   initialDragDrop = (idDropTarget) => {
     // init drag targets and listeners
     document.addEventListener("dragstart", this.onDragStart);
@@ -40,6 +48,8 @@ export default class ShowcaseController {
     );
     document.addEventListener("drop", this.onDrop, false);
   };
+
+  /* handlers to drag and drop */
 
   onDragStart = (e) => {
     this.dragDropController.onDragStart(e, e.target);

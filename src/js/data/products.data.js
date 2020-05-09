@@ -1,3 +1,9 @@
+/*
+ * Array ProductsData
+ * Use to insert instance Product class model
+ * IMPORTANT: Modify index.html if modify id or img for this array
+ */
+
 const ProductsData = [
   { id: "sandia", name: "Sandia", price: 2.1, img: "sandia.png" },
   { id: "mango", name: "Mango", price: 2.1, img: "mango.png" },
