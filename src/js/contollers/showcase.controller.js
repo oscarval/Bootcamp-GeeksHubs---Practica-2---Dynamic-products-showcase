@@ -2,13 +2,19 @@ import Product from "../entities/product/product";
 import DragDropController from "./dragdrop.controller";
 import ShoppingcarController from "./shoppingcar.controller";
 
+import Utils from "../utils/utils";
 export default class ShowcaseController {
+  pathImg = "./assets/img";
   productList = [];
   dragDropController = new DragDropController();
   shoppingcarController = new ShoppingcarController();
   objectDomDropTarget;
   constructor(productsData) {
     this.productList = productsData.map((product) => {
+      const productPriceDom = document.querySelector(`.${product.id}-price`);
+      const productImgDom = document.querySelector(`#${product.id}`);
+      productPriceDom.innerHTML = Utils.formatCurrency(product.price);
+      productImgDom.src = `${this.pathImg}/${product.img}`;
       return new Product(product.id, product.name, product.price);
     });
   }
@@ -27,11 +33,21 @@ export default class ShowcaseController {
       this.onDropOver,
       false
     );
+    this.objectDomDropTarget.addEventListener(
+      "dragleave",
+      this.onDragLeave,
+      false
+    );
     document.addEventListener("drop", this.onDrop, false);
   };
 
   onDragStart = (e) => {
     this.dragDropController.onDragStart(e, e.target);
+  };
+
+  onDragLeave = (e) => {
+    e.preventDefault();
+    this.dragDropController.removeClass(this.objectDomDropTarget);
   };
 
   onDragOver = (e) => {

@@ -1,3 +1,6 @@
+@import "./media.scss";
+@import "./mixin.scss";
+
 /* Colors background*/
 $colorB1: #055902;
 $colorB2: #88bf11;
@@ -13,16 +16,20 @@ $colorT4: #737373;
 $colorT5: #595959;
 $colorT6: #000;
 
+html {
+  background: url("../assets/img/back_body.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
 body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background: $colorB2;
   color: $colorT1;
   font-family: "Calibri", Helvetica, sans-serif;
   font-size: 14px;
   min-height: 100vh;
   max-width: 800px;
+  flex-wrap: wrap;
 }
 a {
   all: unset;
@@ -37,41 +44,50 @@ header {
 }
 
 main {
-  // background: $colorB5;
   flex: 1;
 }
 
 footer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: center;
+  flex-direction: column;
   background: $colorB3;
   padding: 2em 0;
   font-size: 0.7rem;
-  .column {
-    padding: 0 2em;
+  text-align: center;
+  .footer-container-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    .column {
+      padding: 0 2em;
+    }
+  }
+  .footer-container-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
 .main-container {
-  // max-width: 80vw;
-  // margin: 0 auto;
-  // background: $colorB3;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
 }
 .showcase-container {
-  flex: 1.3 0 0;
+  color: $colorT6;
+  flex: 1.3 1.3 0;
   .showcase-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 80vh;
     .showcase-grid {
+      color: white;
       padding: 5px 3em;
       display: flex;
       flex-direction: column;
+      flex: 1;
+      min-height: 0px;
       .showcase-grid-header {
         text-align: center;
         background-color: $colorB4;
@@ -80,21 +96,27 @@ footer {
         padding: 1em;
       }
       .showcase-grid-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        .showcase-row {
+        @include showcase-grid-content-margin;
+        flex: 1;
+        overflow: auto;
+        .showcase-grid-content-wrapper {
           display: flex;
-          flex-direction: row;
-          .showcase-col {
-            background: url("../assets/img/back.jpg") no-repeat center center;
-            background-size: cover;
-            flex: 1 0 0%;
-            padding: 1.5em;
-            text-align: center;
-            border: 2px solid black;
-            img {
-              cursor: move;
+          flex-direction: column;
+          justify-content: space-around;
+          .showcase-row {
+            display: flex;
+            flex-direction: row;
+            .showcase-col {
+              background: url("../assets/img/back.jpg") no-repeat center center;
+              background-size: cover;
+              flex: 1 0 0%;
+              padding: 1.5em;
+              text-align: center;
+              border: 2px solid black;
+              img {
+                cursor: move;
+                border: 2px dashed transparent;
+              }
             }
           }
         }
@@ -111,17 +133,37 @@ footer {
 }
 
 .carlist-container {
-  flex: 1.7 0 0;
-  // background: $colorB5;
+  color: $colorT6;
+  flex: 1.7 1.7 0;
   .carlist-content {
     display: flex;
     flex-direction: column;
     padding: 0 10px;
+    .carlist-header {
+      text-align: center;
+    }
     .carlist-car {
       text-align: center;
       background: white;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      #dropShoppingCar img {
+        padding: 20px 0;
+      }
+      .shopping-car-drop{
+        flex:1;
+      }
+      .shopping-car-total{
+        flex:1;
+        .total{
+          font-weight: bold;
+        }
+      }
     }
     .carlist-products {
+      padding:5px;
+      background-color: $colorT2;
       border: 2px solid white;
       min-height: 20vh;
       font-size: 1rem;
@@ -130,11 +172,10 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        &:first-child{
-            border-bottom: 1px solid $colorT5;
+        &:first-child {
+          border-bottom: 1px solid $colorT5;
         }
         div {
-          
           flex: 1;
         }
         .product-quantity,
@@ -147,7 +188,7 @@ footer {
 }
 
 .img-fluid {
-  max-width: 6vw;
+  max-width: 5vw;
 }
 
 /* Draggable styles*/
@@ -162,6 +203,20 @@ footer {
 }
 
 .onDragStart {
-  border: 2px dashed #000;
-  opacity: 0.4;
+  border: 2px dashed #000 !important;
+  opacity: 0.6;
+  //transition: border-width 0.6s, opacity 0.6s linear;
+}
+
+/* bar scroll*/
+.showcase-grid-content {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: $colorB1;
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  }
 }
