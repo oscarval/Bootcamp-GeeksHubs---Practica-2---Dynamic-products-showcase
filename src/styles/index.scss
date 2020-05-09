@@ -28,7 +28,7 @@ body {
   font-family: "Calibri", Helvetica, sans-serif;
   font-size: 14px;
   min-height: 100vh;
-  max-width: 800px;
+  max-width: 900px;
   flex-wrap: wrap;
 }
 a {
@@ -151,23 +151,24 @@ footer {
       #dropShoppingCar img {
         padding: 20px 0;
       }
-      .shopping-car-drop{
-        flex:1;
+      .shopping-car-drop {
+        flex: 1;
       }
-      .shopping-car-total{
-        flex:1;
-        .total{
+      .shopping-car-total {
+        flex: 1;
+        .total {
           font-weight: bold;
         }
       }
     }
     .carlist-products {
-      padding:5px;
+      padding: 5px;
       background-color: $colorT2;
       border: 2px solid white;
       min-height: 20vh;
       font-size: 1rem;
       .carlist-product-item {
+        padding-top: 5px;
         color: $colorT6;
         display: flex;
         flex-direction: row;
@@ -179,8 +180,13 @@ footer {
           flex: 1;
         }
         .product-quantity,
-        .product-price {
+        .product-price,
+        .product-delete {
           text-align: center;
+        }
+        .product-delete button{
+          background-color: $colorB3;
+          border-radius: 5px;
         }
       }
     }

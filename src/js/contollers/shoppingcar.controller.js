@@ -23,8 +23,19 @@ export default class ShoppingcarController {
           product.id
         }">${Utils.formatCurrency(product.price)}</div>`;
       let divProductItem = document.createElement("div");
+      divProductItem.id = `product-item-${product.id}`;
       divProductItem.classList.add("carlist-product-item");
+
+      const divDelete = document.createElement("div");
+      divDelete.className = "product-delete";
+      const buttonDelete = document.createElement("button");
+      buttonDelete.id = product.id;
+      buttonDelete.className = "product-delete";
+      buttonDelete.innerHTML = "Borrar";
+      buttonDelete.onclick = this.deleteProduct;
+      divDelete.appendChild(buttonDelete);
       divProductItem.innerHTML = textProduct;
+      divProductItem.appendChild(divDelete);
       this.objectDomCarList.appendChild(divProductItem);
     } else {
       document.querySelector(`#product-name-${product.id}`).innerHTML =
@@ -35,10 +46,16 @@ export default class ShoppingcarController {
         `#product-price-${product.id}`
       ).innerHTML = Utils.formatCurrency(product.price);
     }
+    this.setTotal();
+  };
+
+  deleteProduct = (event) => {
+    delete this.prodAdded[event.target.id];
+    document.querySelector(`#product-item-${event.target.id}`).remove();
+    this.setTotal();
   };
 
   setProduct = (idProduct) => {
-    console.log(ProductsData);
     const product = ProductsData.find((prod) => prod.id === idProduct);
     if (this.prodAdded[product.id]) {
       this.prodAdded[product.id].quantity++;
@@ -52,5 +69,13 @@ export default class ShoppingcarController {
       );
     }
     return this.prodAdded[product.id];
+  };
+
+  setTotal = (idProduct) => {
+    let total = 0;
+    for (let product in this.prodAdded) {
+      total += this.prodAdded[product].price;
+    }
+    document.querySelector(".total").innerHTML = Utils.formatCurrency(total);
   };
 }
