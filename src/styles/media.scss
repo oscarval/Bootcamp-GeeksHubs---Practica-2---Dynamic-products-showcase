@@ -1,0 +1,51 @@
+/* meadia queries*/
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 700px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    .carlist-container {
+      order: -1;
+      .carlist-content {
+        max-width: 75vh;
+        margin: 0 auto;
+        .carlist-car {
+          order: 1;
+        }
+        .carlist-products{
+            max-height: 10vh;
+            overflow-y: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 700px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    .carlist-container {
+      order: -1;
+      .carlist-content {
+        max-width: 75vh;
+        margin: 0 auto;
+        .carlist-car {
+          order: 1;
+        }
+        .carlist-products{
+            max-height: 10vh;
+            overflow-y: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

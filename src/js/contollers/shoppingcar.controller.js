@@ -31,16 +31,18 @@ export default class ShoppingcarController {
         product.name;
       document.querySelector(`#product-quantity-${product.id}`).innerHTML =
         product.quantity;
-      document.querySelector(`#product-price-${product.id}`).innerHTML =
-      Utils.formatCurrency(product.price);
+      document.querySelector(
+        `#product-price-${product.id}`
+      ).innerHTML = Utils.formatCurrency(product.price);
     }
   };
 
   setProduct = (idProduct) => {
+    console.log(ProductsData);
     const product = ProductsData.find((prod) => prod.id === idProduct);
     if (this.prodAdded[product.id]) {
       this.prodAdded[product.id].quantity++;
-      this.prodAdded[product.id].price += this.prodAdded[product.id].price;
+      this.prodAdded[product.id].price += product.price;
     } else {
       this.prodAdded[product.id] = new Product(
         product.id,
